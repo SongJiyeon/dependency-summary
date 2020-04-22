@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+const OtherHeading: React.FC = () => (<h1>My Website Heading</h1>);
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <OtherHeading />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
