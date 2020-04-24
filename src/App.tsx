@@ -1,24 +1,11 @@
 import React from 'react';
-import './App.css';
-
-const OtherHeading: React.FC = () => (<h1>My Website Heading</h1>);
+import Main from './components/Main'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <OtherHeading />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Main />
       </header>
     </div>
   );

@@ -12,18 +12,29 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.1.7",
     "@types/redux-actions": "^2.6.1",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "electron-store": "^5.1.1",
+    "firebase": "^7.14.1",
+    "jsonwebtoken": "^8.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-github-login": "^1.0.3",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "typescript": "~3.7.2"
   },
+  "main": "main.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "build": "npm react-build && electron-builder",
+    "release": "npm react-build && electron-builder --publish=always",
+    "compile-typescript": "tsc"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,5 +50,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "cross-env": "^7.0.2",
+    "electron": "^8.2.3",
+    "electron-builder": "^22.5.1",
+    "electron-is-dev": "^1.2.0",
+    "path": "^0.12.7",
+    "wait-on": "^4.0.2"
   }
 }
