@@ -1,11 +1,9 @@
 import React from 'react';
-import Header from './layouts/Header';
 import LoginButton from './layouts/LoginButton';
 
 export default function Main() {
   return (
-    <div>
-      <Header />
+    <div className="main-container">
       <div className="login-container">
         <LoginButton />
       </div>

@@ -5,6 +5,7 @@ import * as path from 'path';
 
 // 1. Gabage Collection이 일어나지 않도록 함수 밖에 선언함.
 let mainWindow: BrowserWindow;
+app.allowRendererProcessReuse = true;
 
 function createWindow() {
   mainWindow = new BrowserWindow({

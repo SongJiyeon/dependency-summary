@@ -1,4 +1,4 @@
-const SET_LOGGED_IN = 'loggedIn/SET_LOGGEDIN' as const;
+const SET_LOGGED_IN = 'loggedIn/SET_LOGGED_IN' as const;
 
 export const setLoggedIn = (status: boolean, token: string) => ({
   type: SET_LOGGED_IN,

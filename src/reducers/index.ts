@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import counter from './counter';
 import loggedIn from './loggedIn';
+import registerMode from './registerMode';
+import userRepos from './userRepos';
 
 const rootReducer = combineReducers({
-  counter,
-  loggedIn
+  loggedIn,
+  registerMode,
+  userRepos
 });
 
 export default rootReducer;

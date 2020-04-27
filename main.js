@@ -6,6 +6,7 @@ var isDev = require("electron-is-dev");
 var path = require("path");
 // 1. Gabage Collection이 일어나지 않도록 함수 밖에 선언함.
 var mainWindow;
+electron_1.app.allowRendererProcessReuse = false;
 function createWindow() {
     mainWindow = new electron_1.BrowserWindow({
         // 이것들은 제가 사용하는 설정이니 각자 알아서 설정 하십시오.

@@ -1,9 +1,15 @@
 import React from 'react';
+import LogoutButton from '../layouts/LogoutButton';
+import useLogin from '../../hooks/useLogin';
 
 export default function Header() {
+  const { loggedIn } = useLogin();
+
   return (
-    <div>
-      <h1>Header</h1>
+    <div className="header-container">
+      <div>dependency-summary</div>
+      <div className="header-padding"></div>
+      {loggedIn.status && <LogoutButton />}
     </div>
   );
 }
