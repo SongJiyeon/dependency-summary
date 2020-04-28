@@ -7,7 +7,7 @@ export default function Header() {
 
   return (
     <div className="header-container">
-      <div>dependency-summary</div>
+      <div className="header-title">dependency-summary</div>
       <div className="header-padding"></div>
       {loggedIn.status && <LogoutButton />}
     </div>

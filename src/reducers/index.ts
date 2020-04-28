@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import loggedIn from './loggedIn';
-import registerMode from './registerMode';
+import renderMode from './renderMode';
 import userRepos from './userRepos';
+import targetPath from './targetPath';
 
 const rootReducer = combineReducers({
   loggedIn,
-  registerMode,
-  userRepos
+  renderMode,
+  userRepos,
+  targetPath
 });
 
 export default rootReducer;

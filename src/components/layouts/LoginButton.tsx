@@ -22,17 +22,12 @@ firebase.initializeApp(firebaseConfig);
 
 const provider = new firebase.auth.GithubAuthProvider();
 
-// const Store = window.require('electron-store');
-
-// const store = new Store();
-
 function LoginButton() {
   const { onLogin } = useLogin();
 
   function handleLogin(): void {
     firebase.auth().signInWithPopup(provider).then(function(result) {
-      const token = result.credential.accessToken;
-      onLogin(true, token);
+      onLogin(true, result.credential.accessToken);
     }).catch(function(error) {
       console.log(error);
     });
