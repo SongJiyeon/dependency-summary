@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import electron from 'electron';
 import Store from 'electron-store';
+import fs from 'fs';
 import { execSync } from 'child_process';
 
 import LoginButton from './layouts/LoginButton';
@@ -10,7 +11,7 @@ const { app } = electron.remote;
 
 export default function Main() {
   useEffect(() => {
-    if (!store.get('default-path')) {
+    if (!fs.existsSync(app.getPath('documents') + '/.ds')) {
       execSync('mkdir .ds', { cwd: app.getPath('documents') });
       store.set('default-path', app.getPath('documents') + '/.ds');
     }

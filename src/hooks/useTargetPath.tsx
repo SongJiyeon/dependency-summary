@@ -7,7 +7,7 @@ export default function useTargetPath() {
   const targetPath = useSelector((state: RootState) => state.targetPath);
   const dispatch = useDispatch();
 
-  const onTargetChange = useCallback((path: string) => dispatch(setTargetPath(path)), [dispatch]);
+  const onTargetChange = useCallback((path: string | null) => dispatch(setTargetPath(path)), [dispatch]);
 
   return {
     targetPath,

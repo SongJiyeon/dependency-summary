@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Store from 'electron-store';
 
 import Navigation from './layouts/Navigation';
 import DashboardStats from './DashboardContents/DashboardStats';
@@ -8,20 +9,23 @@ import CloneUrl from './DashboardContents/CloneUrl';
 import LocalPath from './DashboardContents/LocalPath';
 import UserSettings from './DashboardContents/UserSettings';
 import useRenderMode from '../hooks/useRenderMode';
-import useLogin from '../hooks/useLogin';
+// import useLogin from '../hooks/useLogin';
 import useUserRepos from '../hooks/useUserRepos';
+
+const store = new Store();
 
 export default function Dashboard() {
   const { renderMode, onClickRenderMode } = useRenderMode();
   const { userRepos, onLoad } = useUserRepos();
-  const { loggedIn } = useLogin();
+  // const { loggedIn } = useLogin();
 
-  async function handleClick(mode: 'stats' | 'userRepos' | 'cloneUrl' | 'localPath' | 'userSettings') {
+  async function handleClick(mode: 'stats' | 'userRepos' | 'cloneUrl' | 'localPath') {
     if (mode === 'userRepos') {
       const repos = await axios({
         method: 'get',
         url: 'https://api.github.com/user/repos',
-        headers: { 'Authorization': 'token ' + loggedIn.token }
+        // headers: { 'Authorization': 'token ' + loggedIn.token }
+        headers: { 'Authorization': 'token ' + store.get('accessToken') }
       });
       onLoad(repos.data);
     }
@@ -34,7 +38,6 @@ export default function Dashboard() {
         <button className="navigation-button" type="button" onClick={() => handleClick('userRepos')}>github repos</button>
         <button className="navigation-button" type="button" onClick={() => handleClick('cloneUrl')}>clone url</button>
         <button className="navigation-button" type="button" onClick={() => handleClick('localPath')}>local path</button>
-        <button className="navigation-button" type="button" onClick={() => handleClick('userSettings')}>settings</button>
       </Navigation>
       <div className="dashboard-contents-container">
         {renderMode === 'stats' && <DashboardStats />}

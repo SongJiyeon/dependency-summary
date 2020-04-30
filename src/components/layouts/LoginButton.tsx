@@ -2,6 +2,7 @@ import React from 'react';
 import * as firebase from "firebase/app";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import Store from 'electron-store';
 
 import "firebase/auth";
 import "firebase/firestore";
@@ -21,12 +22,14 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const provider = new firebase.auth.GithubAuthProvider();
+const store = new Store();
 
 function LoginButton() {
   const { onLogin } = useLogin();
 
   function handleLogin(): void {
     firebase.auth().signInWithPopup(provider).then(function(result) {
+      store.set('accessToken', result.credential.accessToken);
       onLogin(true, result.credential.accessToken);
     }).catch(function(error) {
       console.log(error);
