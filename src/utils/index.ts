@@ -1,11 +1,14 @@
 import { execSync } from 'child_process';
 import Store from 'electron-store';
+import axios from 'axios';
 import _ from 'lodash';
 import fs from 'fs';
 
+import { drawForce, drawPie } from './draw';
+
 const store = new Store();
 
-export function setClassByLanguage(language: string): string {
+function setClassByLanguage(language: string): string {
   switch(language) {
     case '':
       return 'repo-language empty';
@@ -20,7 +23,7 @@ export function setClassByLanguage(language: string): string {
   }
 }
 
-export function setUpdatedDate(date: string): string {
+function setUpdatedDate(date: string): string {
   const today = new Date();
   const updatedAt = new Date(date);
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -29,7 +32,7 @@ export function setUpdatedDate(date: string): string {
   return `Updated on ${updatedAt.getDate()} ${months[updatedAt.getMonth()]} ${year}`;
 }
 
-export function getNPMList(cloneUrl: string, repoName: string, onTargetChange): void {
+function getNPMList(cloneUrl: string, repoName: string): string {
   const basePath = store.get('user-path') || store.get('default-path');
   const path = basePath + `/${repoName}`;
 
@@ -40,12 +43,25 @@ export function getNPMList(cloneUrl: string, repoName: string, onTargetChange): 
     execSync('rm -rf node_modules .git', { cwd: path });
   }
 
-  onTargetChange(path);
-  alert('complete save!');
+  return path;
 };
 
-const nodes = [];
-const links = [];
+function getNPMListLocal(path: string) {
+  try {
+    if (!fs.existsSync(`${path}/node_modules`)) {
+      execSync('npm install', { cwd: path });
+      execSync('npm list -json > npmlist.json', { cwd: path });
+      execSync('rm -rf node_modules .git', { cwd: path });
+    }
+  } catch(error) {
+    alert('프로젝트 폴더가 아니거나 package.json이 없습니다\n다시 확인해주세요');
+  }
+  
+
+  if (!fs.existsSync(`${path}/npmlist.json`)) {
+    execSync('npm list -json > npmlist.json', { cwd: path });
+  }
+}
 
 type moduleType = {
   name?: string,
@@ -53,30 +69,28 @@ type moduleType = {
   dependencies: object
 };
 
-type nodeType = {
-  id: string,
-  depth: number
-}
+type getForceDataType = { nodes: object[], links: object[] };
 
-function findDependencies(source: string, name: string, module: moduleType, depth: number) {
-  if (_.findIndex(nodes, node => node.id === module.from) < 0) {
-    nodes.push({ 'id': module.name || module.from, name, 'depth': depth });
-  }
-  if (_.findIndex(links, link => link.target === module.from && link.source === source) < 0) {
-    module.from && links.push({ 'target': module.from, 'source': source });
-  }
-  
-  if (module.dependencies) {
-    return _.forIn(module.dependencies,
-      (value: moduleType, key: string) => findDependencies(module.name || module.from, key, value, depth + 1));
-  }
-}
-
-type getForceDataReturn = { nodes: object[], links: object[] };
-
-export function getForceData(path: string): getForceDataReturn {
+function getForceData(path: string): getForceDataType {
+  const nodes = [];
+  const links = [];
   const data = fs.readFileSync(path + '/npmlist.json', 'utf8');
   const npmList = JSON.parse(data);
+
+
+  function findDependencies(source: string, name: string, module: moduleType, depth: number) {
+    if (_.findIndex(nodes, node => node.id === module.from) < 0) {
+      nodes.push({ 'id': module.name || module.from, name, 'depth': depth });
+    }
+    if (_.findIndex(links, link => link.target === module.from && link.source === source) < 0) {
+      module.from && links.push({ 'target': module.from, 'source': source });
+    }
+    
+    if (module.dependencies) {
+      return _.forIn(module.dependencies,
+        (value: moduleType, key: string) => findDependencies(module.name || module.from, key, value, depth + 1));
+    }
+  }
 
   findDependencies(npmList.name, npmList.name, npmList, 0);
 
@@ -85,4 +99,43 @@ export function getForceData(path: string): getForceDataReturn {
   console.log({ nodes: nodes.map(node => ({ ...node, weight: linkWeights[node.id] || 0 })), links });
 
   return { nodes: nodes.map(node => ({ ...node, weight: linkWeights[node.id] || 0 })), links };
+};
+
+async function getPieData(path: string): Promise<object> {
+  const res = await axios({
+    method: 'post',
+    url: 'http://localhost:4000/api/module_usage',
+    data: { path }
+  });
+
+  const packageJson = JSON.parse(fs.readFileSync(path + '/package.json', 'utf8'));
+  const devs = _.keys(packageJson.devDependencies);
+  const modules = _.union(_.keys(packageJson.dependencies), devs);
+
+  return {
+    'data': _.map(_.countBy(res.data.modules, module => module), (value, key) => (
+      {
+        'name': key,
+        'value': value
+      }
+    )),
+    'packageJson': modules.map(module => (
+      {
+        'name': module,
+        'dev': _.includes(devs, module),
+        'used': _.includes(res.data.modules, module)
+      }
+    ))
+  };
+}
+
+export {
+  setClassByLanguage,
+  setUpdatedDate,
+  getNPMList,
+  getNPMListLocal,
+  getForceData,
+  getPieData,
+  drawForce,
+  drawPie
 };

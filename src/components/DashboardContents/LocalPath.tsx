@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import electron from 'electron';
+
+import { getNPMListLocal } from '../../utils/index';
 import useTargetPath from '../../hooks/useTargetPath';
 
 const { dialog } = electron.remote;
 
 export default function LocalPath() {
-  const [ value, setValue ] = useState('');
+  const [ path, setPath ] = useState('');
   const { onTargetChange } = useTargetPath();
   
   async function handleOpen() {
     const stdout = await dialog.showOpenDialog({ properties: ['openDirectory'] });
-    setValue(stdout.filePaths[0]);
+    setPath(stdout.filePaths[0]);
   }
 
   function handleSave() {
-    onTargetChange(value);
+    getNPMListLocal(path);
+    onTargetChange(path);
   }
 
   return (
@@ -34,8 +37,8 @@ export default function LocalPath() {
           <input
           className="user-settings-input"
           type="text"
-          value={value}
-          disabled
+          value={path}
+          onChange={e => setPath(e.target.value)}
           name="local-path"
           id="local-path"/>
         </div>

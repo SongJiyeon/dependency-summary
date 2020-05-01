@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Tree from '../graphs/DependencyTree';
+import ForceGraph from '../graphs/ForceGraph';
 
 export default function DependencyTree() {
   const [ treeLoaded, setTreeLoaded ] = useState(false);
@@ -15,7 +15,7 @@ export default function DependencyTree() {
         Dependency Tree
       </div>
       {treeLoaded ? (
-        <Tree />
+        <ForceGraph />
       ) : (
         <div className="dashboard-contents-contents-container">
           <button className="load-tree-button" onClick={loadTree}>LOAD TREE</button>

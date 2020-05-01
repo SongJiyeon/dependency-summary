@@ -11,7 +11,10 @@ export default function UserRepos({ repos }: userReposProps) {
   const { onTargetChange } = useTargetPath();
 
   function loadProject(cloneUrl: string, repoName: string) {
-    getNPMList(cloneUrl, repoName, onTargetChange);
+    const path = getNPMList(cloneUrl, repoName);
+    onTargetChange(path);
+
+    alert('complete save!');
   }
 
   return (
