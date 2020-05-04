@@ -3,12 +3,12 @@ import useTargetPath from '../../hooks/useTargetPath';
 import { getNPMList } from '../../utils/index';
 
 export default function CloneUrl() {
-  const [value, setValue] = useState('');
+  const [path, setPath] = useState('');
   const { onTargetChange } = useTargetPath();
 
   function handleLoad() {
-    const repoName = value.split('/')[4].replace('.git', '');
-    getNPMList(value, repoName, onTargetChange);
+    const repoName = path.split('/')[4].replace('.git', '');
+    onTargetChange(getNPMList(path, repoName));
   }
 
   return (
@@ -25,8 +25,8 @@ export default function CloneUrl() {
           <input
           className="clone-url-input"
           type="text"
-          value={value}
-          onChange={e => setValue(e.target.value)}
+          value={path}
+          onChange={e => setPath(e.target.value)}
           name="clone-url"
           id="clone-url"/>
           <button className="clone-url-load-button" type="button" onClick={handleLoad}>

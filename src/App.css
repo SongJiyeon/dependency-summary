@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Josefin+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap');
 
 html, body {
   height: 100%;
@@ -240,7 +241,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1px #F2F2F2 solid;
+  border-bottom: 1px rgb(160, 160, 160) solid;
 }
 
 .user-repos-container {
@@ -418,6 +419,44 @@ button:focus {
   height: 100%;
 }
 
+
 .force-container {
   height: 100%;
+}
+
+.module-usage-pie {
+  display: flex;
+}
+
+.module-usage-content-title {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.unused {
+  display: inline-block;
+  background-color: rgb(255, 47, 124, 0.5);
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-family: 'Fira Code', monospace;
+}
+
+.dev {
+  background-color: rgb(190, 246, 0, 0.5);
+}
+
+.scope {
+  background-color: rgb(0, 173, 188, 0.5);
+}
+
+.pie-container {
+  /* background-color: yellow; */
+}
+
+.bar-container {
+  /* background-color: green; */
+  margin-bottom: 50px;
 }

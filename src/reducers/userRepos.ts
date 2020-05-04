@@ -1,4 +1,4 @@
-const SET_USER_REPOS = 'loggedIn/SET_USER_REPOS' as const;
+const SET_USER_REPOS = 'userRepos/SET_USER_REPOS' as const;
 
 export const setUserRepos = (repos: object[]) => ({
   type: SET_USER_REPOS,

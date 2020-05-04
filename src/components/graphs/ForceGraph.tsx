@@ -1,14 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import _ from 'lodash';
 
 import useTargetPath from '../../hooks/useTargetPath';
 import { getForceData, drawForce } from '../../utils/index';
 
 export default function DependencyTree() {
+  const [ data, setData ] = useState({});
+  const [ graphType, setGraphType ] = useState('weight');
   const { targetPath } = useTargetPath();
   
   useEffect(() => {
-    drawForce(getForceData(targetPath));
+    const data = getForceData(targetPath);
+    setData(data);
+    drawForce(_.cloneDeep(data), graphType);
   }, [targetPath]);
+
+  useEffect(() => {
+    !_.isEmpty(data) && drawForce(_.cloneDeep(data), graphType);
+  }, [graphType]);
   
-  return <div className="force-container"></div>; 
+  return (
+    <div>
+      <div className="dependency-tree-button-box">
+        <button type="button" onClick={() => setGraphType('weight')}>WEIGHT</button>
+        <button type="button" onClick={() => setGraphType('depth')}>DEPTH</button>
+      </div>
+      <div className="force-container"></div>
+    </div>
+  );
 }

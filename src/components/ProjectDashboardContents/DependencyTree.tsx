@@ -5,10 +5,6 @@ import ForceGraph from '../graphs/ForceGraph';
 export default function DependencyTree() {
   const [ treeLoaded, setTreeLoaded ] = useState(false);
 
-  function loadTree(): void {
-    setTreeLoaded(true);
-  }
-
   return (
     <div className="dependency-tree-container">
       <div className="dashboard-contents-title">
@@ -18,7 +14,7 @@ export default function DependencyTree() {
         <ForceGraph />
       ) : (
         <div className="dashboard-contents-contents-container">
-          <button className="load-tree-button" onClick={loadTree}>LOAD TREE</button>
+          <button className="load-tree-button" onClick={() => setTreeLoaded(true)}>LOAD TREE</button>
         </div>
       )}
     </div>

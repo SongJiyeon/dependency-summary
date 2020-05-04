@@ -4,7 +4,7 @@ import axios from 'axios';
 import _ from 'lodash';
 import fs from 'fs';
 
-import { drawForce, drawPie } from './draw';
+import { drawForce, drawPie, drawBar } from './draw';
 
 const store = new Store();
 
@@ -43,10 +43,14 @@ function getNPMList(cloneUrl: string, repoName: string): string {
     execSync('rm -rf node_modules .git', { cwd: path });
   }
 
+  getNPMListLocal(path);
+
   return path;
 };
 
 function getNPMListLocal(path: string) {
+  console.log(path);
+  
   try {
     if (!fs.existsSync(`${path}/node_modules`)) {
       execSync('npm install', { cwd: path });
@@ -96,8 +100,6 @@ function getForceData(path: string): getForceDataType {
 
   const linkWeights = _.countBy(links, link => link.target);
 
-  console.log({ nodes: nodes.map(node => ({ ...node, weight: linkWeights[node.id] || 0 })), links });
-
   return { nodes: nodes.map(node => ({ ...node, weight: linkWeights[node.id] || 0 })), links };
 };
 
@@ -113,7 +115,7 @@ async function getPieData(path: string): Promise<object> {
   const modules = _.union(_.keys(packageJson.dependencies), devs);
 
   return {
-    'data': _.map(_.countBy(res.data.modules, module => module), (value, key) => (
+    'usedModules': _.map(_.countBy(res.data.modules, module => module), (value, key) => (
       {
         'name': key,
         'value': value
@@ -137,5 +139,6 @@ export {
   getForceData,
   getPieData,
   drawForce,
-  drawPie
+  drawPie,
+  drawBar
 };

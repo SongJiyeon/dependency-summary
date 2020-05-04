@@ -15,6 +15,8 @@ export default function UserSettings() {
 
   function handleSave() {
     store.set('user-path', value);
+    store.set('test', { 'name': 'test' })
+    console.log(value, store.get('test'));
   }
 
   return (
@@ -38,7 +40,7 @@ export default function UserSettings() {
           className="user-settings-input"
           type="text"
           value={value}
-          disabled
+          onChange={e => setValue(e.target.value)}
           name="user-setting-path"
           id="user-setting-path"/>
         </div>

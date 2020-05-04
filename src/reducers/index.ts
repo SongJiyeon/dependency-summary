@@ -3,12 +3,14 @@ import loggedIn from './loggedIn';
 import renderMode from './renderMode';
 import userRepos from './userRepos';
 import targetPath from './targetPath';
+import techStack from './techStack';
 
 const rootReducer = combineReducers({
   loggedIn,
   renderMode,
   userRepos,
-  targetPath
+  targetPath,
+  techStack
 });
 
 export default rootReducer;
