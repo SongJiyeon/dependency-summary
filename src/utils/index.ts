@@ -49,8 +49,6 @@ function getNPMList(cloneUrl: string, repoName: string): string {
 };
 
 function getNPMListLocal(path: string) {
-  console.log(path);
-  
   try {
     if (!fs.existsSync(`${path}/node_modules`)) {
       execSync('npm install', { cwd: path });
@@ -103,7 +101,32 @@ function getForceData(path: string): getForceDataType {
   return { nodes: nodes.map(node => ({ ...node, weight: linkWeights[node.id] || 0 })), links };
 };
 
-async function getPieData(path: string): Promise<object> {
+type usedModules = {
+  'name': string,
+  'value': number
+};
+
+type packageJson = {
+  'name': string,
+  'dev': boolean,
+  'used': boolean
+};
+
+type techStacks = {
+  'name': string,
+  'type': string,
+  'image_url': string,
+  'homepage_url': string
+};
+
+type pieDataType = {
+  usedModules: usedModules[],
+  packageJson: packageJson[],
+  techStacks: techStacks[],
+  techList: techStacks[]
+};
+
+async function getModuleUsageData(path: string): Promise<pieDataType> {
   const res = await axios({
     method: 'post',
     url: 'http://localhost:4000/api/module_usage',
@@ -111,6 +134,8 @@ async function getPieData(path: string): Promise<object> {
   });
 
   const packageJson = JSON.parse(fs.readFileSync(path + '/package.json', 'utf8'));
+  const techList = JSON.parse(fs.readFileSync('public/techlist.json', 'utf8'));
+  
   const devs = _.keys(packageJson.devDependencies);
   const modules = _.union(_.keys(packageJson.dependencies), devs);
 
@@ -121,13 +146,17 @@ async function getPieData(path: string): Promise<object> {
         'value': value
       }
     )),
-    'packageJson': modules.map(module => (
+    'packageJson': modules.map((module: string) => (
       {
         'name': module,
         'dev': _.includes(devs, module),
         'used': _.includes(res.data.modules, module)
       }
-    ))
+    )),
+    'techStacks': techList.filter((tech: techStacks) => 
+      _.includes(modules , tech.name)
+    ),
+    'techList': techList
   };
 }
 
@@ -137,7 +166,7 @@ export {
   getNPMList,
   getNPMListLocal,
   getForceData,
-  getPieData,
+  getModuleUsageData,
   drawForce,
   drawPie,
   drawBar

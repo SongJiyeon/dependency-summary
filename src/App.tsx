@@ -14,11 +14,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* {loggedIn.status ?
+      {loggedIn.status ?
       targetPath ? <ProjectDashboard /> : <Dashboard />
       :<Main />
-      } */}
-      {targetPath ? <ProjectDashboard /> : <Dashboard />}
+      }
+      {/* {targetPath ? <ProjectDashboard /> : <Dashboard />} */}
     </div>
   );
 }

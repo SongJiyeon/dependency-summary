@@ -4,6 +4,8 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
 import useTargetPath from '../../hooks/useTargetPath';
 import useRenderMode from '../../hooks/useRenderMode';
+import useTechList from '../../hooks/useTechList';
+import useTechStack from '../../hooks/useTechStack';
 
 type NavigationProps = {
   title: string,
@@ -12,7 +14,15 @@ type NavigationProps = {
 
 export default function Navigation({ title, children }: NavigationProps) {
   const { targetPath, onTargetChange } = useTargetPath();
+  const { onSetTechStack } = useTechStack();
+  const { onSetTechList } = useTechList();
   const { onClickRenderMode } = useRenderMode();
+
+  function handleGoBack(): void {
+    onTargetChange(null);
+    onSetTechStack([]);
+    onSetTechList([]);
+  }
 
   return (
     <div className="navigation-container">
@@ -21,7 +31,7 @@ export default function Navigation({ title, children }: NavigationProps) {
         <button
         className="go-back-button"
         type="button"
-        onClick={() => {onTargetChange(null)}}>
+        onClick={handleGoBack}>
           <FontAwesomeIcon icon={faAngleLeft} size="3x" />
         </button>}
         <div className="navigation-header-title">

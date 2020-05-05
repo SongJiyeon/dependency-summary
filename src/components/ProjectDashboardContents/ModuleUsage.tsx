@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from 'react';
 
 import UnusedModules from '../graphs/UnusedModules';
+import useTechStack from '../../hooks/useTechStack';
+import useTechList from '../../hooks/useTechList';
 import useTargetPath from '../../hooks/useTargetPath';
-import { getPieData, drawPie, drawBar } from '../../utils';
+import { getModuleUsageData, drawPie, drawBar } from '../../utils';
 
 export default function ModuleUsage() {
   const [ data, setData ] = useState({ usedModules: [], packageJson: [] });
+  const { onSetTechStack } = useTechStack();
+  const { onSetTechList } = useTechList();
   const { targetPath } = useTargetPath();
 
   useEffect(() => {
     async function setPie(): Promise<void> {
-      const { usedModules, packageJson } = await getPieData(targetPath);
+      const {
+        usedModules,
+        packageJson,
+        techStacks,
+        techList
+      } = await getModuleUsageData(targetPath);
+
       drawPie(usedModules);
       drawBar(usedModules);
       setData({ usedModules, packageJson });
+      onSetTechStack(techStacks);
+      onSetTechList(techList);
     }
     setPie();
   }, [targetPath]);

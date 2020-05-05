@@ -1,878 +1,404 @@
 [
   {
-    "homepage_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/",
+    "homepage_url": "https://developer.mozilla.org/en-Us/docs/Web/javascript/",
     "image_url": "https://img.stackshare.io/service/1209/javascript.jpeg",
-    "name": "JavaScript",
-    "type": "language"
+    "name": "javascript",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://jquery.com/",
     "image_url": "https://img.stackshare.io/service/1021/lxEKmMnB_400x400.jpg",
     "name": "jQuery",
-    "type": "javascript UI library"
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://github.com/",
     "image_url": "https://img.stackshare.io/service/27/sBsvBbjY.png",
     "name": "GitHub",
-    "type": "code collaboration & version control"
-  }, 
-  {
-    "homepage_url": "https://marketingplatform.google.com/about/analytics/",
-    "image_url": "https://img.stackshare.io/service/64/cU74ahCn_400x400.jpg",
-    "name": "Google-Analytics",
-    "type": "general analytics"
+    "type": "devOps"
   }, 
   {
     "homepage_url": "https://www.python.org/",
     "image_url": "https://img.stackshare.io/service/993/pUBY5pVj.png",
-    "name": "Python",
-    "type": "language"
+    "name": "python",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://git-scm.com/",
     "image_url": "https://img.stackshare.io/service/1046/git.png",
-    "name": "Git",
-    "type": "version control system"
+    "name": "git",
+    "type": "devOps"
   }, 
   {
     "homepage_url": "https://nodejs.org/",
-    "image_url": "https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png",
-    "name": "Node.js",
-    "type": "framework"
+    "image_url": "https://img.stackshare.io/service/1011/n1jRsFeB_400x400.png",
+    "name": "node.js",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://www.php.net/",
-    "image_url": "https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg",
-    "name": "PHP",
-    "type": "language"
+    "image_url": "https://img.stackshare.io/service/991/hwUcgZ41_400x400.jpg",
+    "name": "php",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://www.docker.com/",
     "image_url": "https://img.stackshare.io/service/586/n4u37v9t_400x400.png",
-    "name": "Docker",
-    "type": "virtual machine platform & container"
+    "name": "docker",
+    "type": "devOps"
   }, 
   {
     "homepage_url": "http://nginx.org/",
     "image_url": "https://img.stackshare.io/service/1052/YMxUfyWf.png",
     "name": "nginx",
-    "type": "web server"
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://reactjs.org/",
-    "image_url": "https://img.stackshare.io/service/1020/OYIaJ1KK.png",
-    "name": "React",
-    "type": "javscript UI library"
+    "image_url": "https://img.stackshare.io/service/1020/OYIaj1KK.png",
+    "name": "react",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://www.java.com/ko/",
     "image_url": "https://img.stackshare.io/service/995/K85ZWV2F.png",
-    "name": "Java",
-    "type": "language"
+    "name": "java",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://slack.com/",
-    "image_url": "https://img.stackshare.io/service/675/RNiSRYOF_400x400.jpg",
-    "name": "Slack",
-    "type": "group chat & notification"
+    "image_url": "https://img.stackshare.io/service/675/RNisRYOF_400x400.jpg",
+    "name": "slack",
+    "type": "business"
   }, 
   {
     "homepage_url": "https://html.spec.whatwg.org/multipage",
     "image_url": "https://img.stackshare.io/service/2538/kEpgHiC9.png",
-    "name": "HTML5",
-    "type": "language"
+    "name": "html5",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://www.mysql.com/",
     "image_url": "https://img.stackshare.io/service/1025/logo-mysql-170x170.png",
-    "name": "MySQL",
-    "type": "databases"
-  }, 
-  {
-    "homepage_url": "https://www.cloudflare.com/",
-    "image_url": "https://img.stackshare.io/service/15/twitter-profile-400x400.png",
-    "name": "CloudFlare",
-    "type": "content delivery network"
+    "name": "mysql",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://code.visualstudio.com/",
-    "image_url": "https://img.stackshare.io/service/4202/Visual_Studio_Code_logo.png",
-    "name": "Visual-Studio-Code",
-    "type": "text editor"
+    "image_url": "https://img.stackshare.io/service/4202/Visual_studio_Code_logo.png",
+    "name": "visual-studio-code",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://httpd.apache.org/",
     "image_url": "https://img.stackshare.io/service/1051/fab.os.logo.apache.200.15011_400x400.jpg",
-    "name": "Apache-HTTP-Server",
-    "type": "web server"
+    "name": "apache-http-server",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://www.npmjs.com/",
     "image_url": "https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png",
     "name": "npm",
-    "type": "front end package manager"
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://www.mongodb.com/",
     "image_url": "https://img.stackshare.io/service/1030/leaf-360x360.png",
-    "name": "MongoDB",
-    "type": "databases"
+    "name": "Mongodb",
+    "type": "database"
   }, 
   {
     "homepage_url": "https://www.postgresql.org/",
-    "image_url": "https://img.stackshare.io/service/1028/ASOhU5xJ.png",
-    "name": "PostgreSQL",
-    "type": "databases"
+    "image_url": "https://img.stackshare.io/service/1028/AsOhU5xj.png",
+    "name": "postgresql",
+    "type": "database"
   },  
   {
     "homepage_url": "https://www.postman.com/",
     "image_url": "https://img.stackshare.io/service/1336/xWMRvm_5_400x400.png",
-    "name": "Postman",
-    "type": "api tools"
+    "name": "postman",
+    "type": "dev"
   }, 
   {
     "homepage_url": "https://angularjs.org/",
     "image_url": "https://img.stackshare.io/service/1019/square.png",
-    "name": "AngularJS",
-    "type": "javascript mvc frameworks"
+    "name": "angular",
+    "type": "dev"
   }, 
   {
-    "homepage_url": "",
+    "homepage_url": "https://www.jenkins.io/",
     "image_url": "",
-    "name": "Ubuntu",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Jenkins",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Font-Awesome",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Redis",
-    "type": ""
-  }, 
+    "name": "jenkins",
+    "type": "devOps"
+  },  
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Amazon-EC2",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Amazon-S3",
-    "type": ""
+    "name": "Amazon-s3",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Jira",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Stack-Overflow",
-    "type": ""
+    "name": "jira",
+    "type": "devOps"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "ES6",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Trello",
-    "type": ""
+    "type": "business"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "GitLab",
-    "type": ""
+    "type": "devOps"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "TypeScript",
-    "type": ""
+    "name": "typescript",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Bitbucket",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "jQuery-UI",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "G-Suite",
-    "type": ""
+    "name": "bitbucket",
+    "type": "devOps"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "C#",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Google-Maps",
-    "type": ""
+    "name": "vue",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Vue.js",
-    "type": ""
+    "name": "sass",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Kubernetes",
-    "type": ""
+    "name": "sublime",
+    "type": "dev"
+  },  
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "webpack",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Sass",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Sublime",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Text",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Webpack",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Ruby",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Elasticsearch",
-    "type": ""
+    "name": "ruby",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Visual-Studio",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "IntelliJ-IDEA",
-    "type": ""
+    "name": "Intellij-IDEA",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Firebase",
-    "type": ""
+    "name": "firebase",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Django",
-    "type": ""
-  }, 
+    "name": "django",
+    "type": "dev"
+  },  
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Modernizr",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "VirtualBox",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Dropbox",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Heroku",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "New-Relic",
-    "type": ""
+    "name": "heroku",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Vim",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "React-Native",
-    "type": ""
+    "name": "react-native",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Android-SDK",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Laravel",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Mailchimp",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Redux",
-    "type": ""
+    "name": "redux",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Rails",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Amazon-CloudFront",
-    "type": ""
+    "name": "express",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "ExpressJS",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "GraphQL",
-    "type": ""
+    "name": "graphQL",
+    "type": "database"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Atom",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Android-Studio",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Confluence",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "DigitalOcean",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "GitHub-Pages",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "ASP.NET",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Google-AdSense",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Microsoft-Azure",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Skype",
-    "type": ""
+    "name": "skype",
+    "type": "business"
+  },  
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "CSS3",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "AWS-Lambda",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Ansible",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "CSS-3",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Spring-Boot",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "RabbitMQ",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Kafka",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Markdown",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "PyCharm",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Flask",
-    "type": ""
+    "name": "pycharm",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Xcode",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "gulp",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Swift",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Docker-Compose",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Kibana",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "PayPal",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Stripe",
-    "type": ""
+    "name": "swift",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
     "name": "Notepad++",
-    "type": ""
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Microsoft-IIS",
-    "type": ""
+    "name": "babel",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Babel",
-    "type": ""
+    "name": "apache-tomcat",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Amazon-RDS",
-    "type": ""
+    "name": "microsoft-sql-server",
+    "type": "database"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Apache-Tomcat",
-    "type": ""
+    "name": "sqlite",
+    "type": "database"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Amazon-Route-53",
-    "type": ""
+    "name": "socket.io",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Varnish",
-    "type": ""
+    "name": "circleCI",
+    "type": "devOps"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Microsoft-SQL-Server",
-    "type": ""
+    "name": "gradle",
+    "type": "devOps"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "PhpStorm",
-    "type": ""
+    "name": "electron",
+    "type": "dev"
   }, 
   {
     "homepage_url": "",
     "image_url": "",
-    "name": "Sentry",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Selenium",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "SQLite",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Vagrant",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Ya",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Objective-C",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Socket.IO",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "CircleCI",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Ionic",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Material-Design-for-Angular",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Grafana",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Gradle",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Google",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "App",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Engine",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Terraform",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Scala",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "InVision",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Logstash",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Grunt",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "AWS-Elastic-Load-Balancing-(ELB)",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Amazon-CloudWatch",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Bower",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Slick",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Animate.css",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Electron",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Asana",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Amazon-SES",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "RequireJS",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "HubSpot",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Twilio",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Backbone.js",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "OpenSSL",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Mailgun",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "WooCommerce",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Shopify",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Memcached",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Datadog",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Intercom",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Handlebars.js",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Symfony",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Zendesk",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Mixpanel",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "Mandrill",
-    "type": ""
-  }, 
-  {
-    "homepage_url": "",
-    "image_url": "",
-    "name": "AddThis",
-    "type": ""
+    "name": "openSSL",
+    "type": "dev"
   }
- ]
+]

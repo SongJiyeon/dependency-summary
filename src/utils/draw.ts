@@ -214,6 +214,7 @@ export function drawPie(data: object[]): void {
 
   const radius = Math.min(width, height) / 2 - margin;
   const total = data.reduce((sum, d: { value: number }) => sum + d.value, 0);
+  const colorLength = _.uniqBy(data.map(d => d.value), d => d.value).length;
   const length = data.length;
 
   const svg = d3.select('.pie-container')
