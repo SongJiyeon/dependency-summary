@@ -130,7 +130,7 @@ async function getModuleUsageData(path: string): Promise<pieDataType> {
   const res = await axios({
     method: 'post',
     url: 'http://localhost:4000/api/module_usage',
-    data: { path }
+    data: { path, jwtToken: store.get('jwtToken') }
   });
 
   const packageJson = JSON.parse(fs.readFileSync(path + '/package.json', 'utf8'));

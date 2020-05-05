@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import * as firebase from "firebase/app";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -27,13 +28,23 @@ const store = new Store();
 function LoginButton() {
   const { onLogin } = useLogin();
 
-  function handleLogin(): void {
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      store.set('accessToken', result.credential.accessToken);
-      onLogin(true, result.credential.accessToken);
-    }).catch(function(error) {
-      console.log(error);
-    });
+  async function handleLogin(): Promise<void> {
+    const access_token = (
+      await firebase
+        .auth()
+        .signInWithPopup(provider)
+    ).credential.accessToken;
+
+    const { jwttoken } = (await axios({
+        method: 'post',
+        url: 'http://localhost:4000/auth/login',
+        data: { access_token }
+    })).headers;
+
+    store.set('accessToken', access_token);
+    store.set('jwtToken', jwttoken);
+
+    onLogin(true, access_token);
   };
 
   return (
