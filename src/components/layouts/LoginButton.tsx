@@ -4,9 +4,7 @@ import Store from 'electron-store';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// import "firebase/auth";
-// import "firebase/firestore";
-import firebase from "firebase/app";
+// import firebase from "firebase/app";
 
 import useLogin from '../../hooks/useLogin';
 
@@ -21,31 +19,51 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
-const provider = new firebase.auth.GithubAuthProvider();
+// const provider = new firebase.auth.GithubAuthProvider();
 const store = new Store();
 
 function LoginButton() {
   const { onLogin } = useLogin();
 
   async function handleLogin(): Promise<void> {
-    const access_token = (
-      await firebase
-        .auth()
-        .signInWithPopup(provider)
-    ).credential.accessToken;
+    // const access_token = (
+    //   await firebase
+    //     .auth()
+    //     .signInWithPopup(provider)
+    // ).credential.accessToken;
 
-    const { jwttoken } = (await axios({
-        method: 'post',
-        url: `${process.env.REACT_APP_FETCH_URL}/auth/login`,
-        data: { access_token }
-    })).headers;
+    // const res = await axios({
+    //   method: 'get',
+    //   url: 'https://github.com/login/oauth/authorize',
+    //   params: {
+    //     client_id: process.env.REACT_APP_GITHUB_CLIENT_ID,
+    //     redirect_uri: process.env.REACT_APP_GITHUB_REDIRECT_URI
+    //   },
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // });
 
-    store.set('accessToken', access_token);
-    store.set('jwtToken', jwttoken);
+    const res = await axios({
+      method: 'post',
+      url: 'https://api.dependency-summary.com/api/hello',
+      data: { say: 'hello' }
+    });
 
-    onLogin(true, access_token);
+    console.log(res);
+
+    // const { jwttoken } = (await axios({
+    //     method: 'post',
+    //     url: `${process.env.REACT_APP_FETCH_URL}/auth/login`,
+    //     data: { access_token }
+    // })).headers;
+
+    // store.set('accessToken', access_token);
+    // store.set('jwtToken', jwttoken);
+
+    // onLogin(true, access_token);
   };
 
   return (
