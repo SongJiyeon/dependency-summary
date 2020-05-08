@@ -4,7 +4,7 @@ import { getNPMList } from '../../utils/index';
 
 export default function CloneUrl() {
   const [path, setPath] = useState('');
-  const { onTargetChange } = useTargetPath();
+  const { targetPath, onTargetChange } = useTargetPath();
 
   function handleLoad() {
     const repoName = path.split('/')[4].replace('.git', '');

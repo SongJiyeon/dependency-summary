@@ -4,8 +4,8 @@ import Store from 'electron-store';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import "firebase/auth";
-import "firebase/firestore";
+// import "firebase/auth";
+// import "firebase/firestore";
 import firebase from "firebase/app";
 
 import useLogin from '../../hooks/useLogin';
