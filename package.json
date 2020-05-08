@@ -57,8 +57,8 @@
     "postinstall": "electron-builder",
     "preelectron-pack": "yarn build",
     "electron-pack": "build -mw",
-    "netlify-build": "react-scripts build",
-    "build": "yarn rescripts-build && yarn run postinstall",
+    "electron-build": "yarn rescripts-build && yarn run postinstall",
+    "build": "react-scripts build",
     "release": "yarn rescripts-build && yarn run postinstall --publish=always"
   },
   "eslintConfig": {
