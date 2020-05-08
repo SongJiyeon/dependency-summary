@@ -1,12 +1,11 @@
-import { exec, execSync } from 'child_process';
+import { execSync } from 'child_process';
 import electron from 'electron';
 import Store from 'electron-store';
-import fs from 'fs';
 import _ from 'lodash';
 
 import { drawForce, drawPie, drawBar } from './draw';
 
-const { findModules } = electron.remote.require('./utils');
+const { findFileExists, setFileRead, findModules } = electron.remote.require('./utils');
 const store = new Store();
 
 function setClassByLanguage(language: string): string {
@@ -37,7 +36,7 @@ function getNPMList(cloneUrl: string, repoName: string): string {
   const basePath = store.get('user-path') || store.get('default-path');
   const path = basePath + `/${repoName}`;
 
-  if (!fs.existsSync(path)) {
+  if (!findFileExists(path)) {
     console.log('start git clone');
     execSync(`git clone ${cloneUrl}`, { cwd: basePath });
     console.log('start npm install');
@@ -55,7 +54,7 @@ function getNPMList(cloneUrl: string, repoName: string): string {
 
 function getNPMListLocal(path: string) {
   try {
-    if (!fs.existsSync(`${path}/node_modules`)) {
+    if (!findFileExists(`${path}/node_modules`)) {
       console.log('start npm install');
       execSync('npm install', { cwd: path });
       console.log('complete install');
@@ -63,7 +62,7 @@ function getNPMListLocal(path: string) {
         execSync('npm list -json > npmlist.json', { cwd: path });
         console.log('complete make list');
       } catch (error) {
-        if (fs.existsSync(`${path}/npmlist.json`)) {
+        if (findFileExists(`${path}/npmlist.json`)) {
           console.log('success');
           return;
         }
@@ -76,7 +75,7 @@ function getNPMListLocal(path: string) {
   }
   
 
-  if (!fs.existsSync(`${path}/npmlist.json`)) {
+  if (!findFileExists(`${path}/npmlist.json`)) {
     execSync('npm list -json > npmlist.json', { cwd: path });
   }
 }
@@ -92,7 +91,7 @@ type getForceDataType = { nodes: object[], links: object[] };
 function getForceData(path: string): getForceDataType {
   const nodes = [];
   const links = [];
-  const data = fs.readFileSync(path + '/npmlist.json', 'utf8');
+  const data = setFileRead(path + '/npmlist.json', 'utf8');
   const npmList = JSON.parse(data);
 
   function findDependencies(source: string, name: string, module: moduleType, depth: number) {
@@ -145,8 +144,8 @@ type pieDataType = {
 async function getModuleUsageData(path: string): Promise<pieDataType> {
   const usedModuleList = findModules(path);
 
-  const packageJson = JSON.parse(fs.readFileSync(path + '/package.json', 'utf8'));
-  const techList = JSON.parse(fs.readFileSync('public/techlist.json', 'utf8'));
+  const packageJson = JSON.parse(setFileRead(path + '/package.json', 'utf8'));
+  const techList = JSON.parse(setFileRead('public/techlist.json', 'utf8'));
   
   const devs = _.keys(packageJson.devDependencies);
   const modules = _.union(_.keys(packageJson.dependencies), devs);

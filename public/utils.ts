@@ -1,10 +1,20 @@
-import * as babel from '@babel/core';
-import * as esprima from 'esprima';
+import { app } from 'electron';
+
 import * as fs from 'fs';
-import axios from 'axios';
+import * as esprima from 'esprima';
+import * as babel from '@babel/core';
+import { execSync } from 'child_process';
 
-exports.sayHello = () => {
+exports.findFileExists = (path: string) => fs.existsSync(path);
+exports.setFileRead = (path: string, option: string) => fs.readFileSync(path, option);
 
+exports.setDefaultPath = () => {
+  if (!fs.existsSync(`${app.getPath('documents')}/.ds`)) {
+    execSync('mkdir .ds', { cwd: app.getPath('documents') });
+    return `${app.getPath('documents')}/.ds`;
+  }
+
+  return null;
 };
 
 exports.findModules = (path: string) => {
