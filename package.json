@@ -57,6 +57,7 @@
     "postinstall": "electron-builder",
     "preelectron-pack": "yarn build",
     "electron-pack": "build -mw",
+    "netlify-build": "react-scripts build",
     "build": "yarn rescripts-build && yarn run postinstall",
     "release": "yarn rescripts-build && yarn run postinstall --publish=always"
   },
