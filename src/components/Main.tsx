@@ -4,6 +4,7 @@ import Store from 'electron-store';
 import fs from 'fs';
 import { execSync } from 'child_process';
 
+import Loading from './layouts/Loading';
 import LoginButton from './layouts/LoginButton';
 
 const store = new Store();
@@ -21,9 +22,12 @@ export default function Main() {
     <div className="main-container">
       <div className="login-container">
         <LoginButton />
+        <Loading />
       </div>
       <div className="intro-container">
-        <h2>this is introduction</h2>
+        <div className="intro-box">
+          <img src="intro.png" alt=""/>
+        </div>
       </div>
     </div>
   );

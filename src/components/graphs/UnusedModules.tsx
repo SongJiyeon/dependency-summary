@@ -13,10 +13,15 @@ export default function UnusedModules({ data }: UnusedModulesProps) {
     module => !_.includes(_.map(data.usedModules, m => m.name), module.name)
   );
   
-  function setClassName(module: { 'name': string, 'dev': boolean }): string {
+  type moduleType = {
+    name: string,
+    dev: boolean
+  }
+
+  function setModuleType(module: moduleType): string {
     return module.name[0] === '@' ?
-      'scope unused' : module.dev ?
-      'dev unused' : 'unused';
+    'scope' : module.dev ?
+    'dev' : 'normal';
   }
 
   return (
@@ -25,11 +30,13 @@ export default function UnusedModules({ data }: UnusedModulesProps) {
         Unused Modules
       </div>
       <div>
-        {UnusedModules.map((module, index) => (
+        {UnusedModules.map((module: moduleType, index) => (
           <div
           key={index}
-          className={setClassName(module)}
-          data-tooltip='hello'>{module.name}</div>
+          className={setModuleType(module) + 'Dep unused'}
+          data-tooltip='hello'>{module.name}
+          <span>{setModuleType(module)} 타입의 dependency입니다<br></br>
+          import 여부와 관계없이 사용되었을 수 있습니다</span></div>
         ))}
       </div>
     </div>

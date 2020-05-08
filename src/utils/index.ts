@@ -1,11 +1,12 @@
-import { execSync } from 'child_process';
+import { exec, execSync } from 'child_process';
+import electron from 'electron';
 import Store from 'electron-store';
-import axios from 'axios';
-import _ from 'lodash';
 import fs from 'fs';
+import _ from 'lodash';
 
 import { drawForce, drawPie, drawBar } from './draw';
 
+const { findModules } = electron.remote.require('./utils');
 const store = new Store();
 
 function setClassByLanguage(language: string): string {
@@ -37,9 +38,13 @@ function getNPMList(cloneUrl: string, repoName: string): string {
   const path = basePath + `/${repoName}`;
 
   if (!fs.existsSync(path)) {
+    console.log('start git clone');
     execSync(`git clone ${cloneUrl}`, { cwd: basePath });
+    console.log('start npm install');
     execSync('npm install', { cwd: path });
+    console.log('complete install');
     execSync('npm list -json > npmlist.json', { cwd: path });
+    console.log('complete make list');
     execSync('rm -rf node_modules .git', { cwd: path });
   }
 
@@ -51,8 +56,19 @@ function getNPMList(cloneUrl: string, repoName: string): string {
 function getNPMListLocal(path: string) {
   try {
     if (!fs.existsSync(`${path}/node_modules`)) {
+      console.log('start npm install');
       execSync('npm install', { cwd: path });
-      execSync('npm list -json > npmlist.json', { cwd: path });
+      console.log('complete install');
+      try {
+        execSync('npm list -json > npmlist.json', { cwd: path });
+        console.log('complete make list');
+      } catch (error) {
+        if (fs.existsSync(`${path}/npmlist.json`)) {
+          console.log('success');
+          return;
+        }
+        console.log(error.status);
+      }
       execSync('rm -rf node_modules .git', { cwd: path });
     }
   } catch(error) {
@@ -78,7 +94,6 @@ function getForceData(path: string): getForceDataType {
   const links = [];
   const data = fs.readFileSync(path + '/npmlist.json', 'utf8');
   const npmList = JSON.parse(data);
-
 
   function findDependencies(source: string, name: string, module: moduleType, depth: number) {
     if (_.findIndex(nodes, node => node.id === module.from) < 0) {
@@ -120,6 +135,7 @@ type techStacks = {
 };
 
 type pieDataType = {
+  usedModuleList: string[],
   usedModules: usedModules[],
   packageJson: packageJson[],
   techStacks: techStacks[],
@@ -127,11 +143,7 @@ type pieDataType = {
 };
 
 async function getModuleUsageData(path: string): Promise<pieDataType> {
-  const res = await axios({
-    method: 'post',
-    url: 'http://localhost:4000/api/module_usage',
-    data: { path, jwtToken: store.get('jwtToken') }
-  });
+  const usedModuleList = findModules(path);
 
   const packageJson = JSON.parse(fs.readFileSync(path + '/package.json', 'utf8'));
   const techList = JSON.parse(fs.readFileSync('public/techlist.json', 'utf8'));
@@ -140,7 +152,8 @@ async function getModuleUsageData(path: string): Promise<pieDataType> {
   const modules = _.union(_.keys(packageJson.dependencies), devs);
 
   return {
-    'usedModules': _.map(_.countBy(res.data.modules, module => module), (value, key) => (
+    'usedModuleList': usedModuleList,
+    'usedModules': _.map(_.countBy(usedModuleList, module => module), (value, key) => (
       {
         'name': key,
         'value': value
@@ -150,7 +163,7 @@ async function getModuleUsageData(path: string): Promise<pieDataType> {
       {
         'name': module,
         'dev': _.includes(devs, module),
-        'used': _.includes(res.data.modules, module)
+        'used': _.includes(usedModuleList, module)
       }
     )),
     'techStacks': techList.filter((tech: techStacks) => 

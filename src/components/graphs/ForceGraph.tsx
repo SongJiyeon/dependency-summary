@@ -9,14 +9,16 @@ export default function DependencyTree() {
   const [ graphType, setGraphType ] = useState('weight');
   const { targetPath } = useTargetPath();
   
+  const select = '.force-container';
+
   useEffect(() => {
     const data = getForceData(targetPath);
     setData(data);
-    drawForce(_.cloneDeep(data), graphType);
+    drawForce(_.cloneDeep(data), graphType, select);
   }, [targetPath]);
 
   useEffect(() => {
-    !_.isEmpty(data) && drawForce(_.cloneDeep(data), graphType);
+    !_.isEmpty(data) && drawForce(_.cloneDeep(data), graphType, select);
   }, [graphType]);
   
   return (

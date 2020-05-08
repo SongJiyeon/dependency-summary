@@ -20,6 +20,6 @@
     "noImplicitAny": false,
     "jsx": "react"
   },
-  "include": ["./main.ts"],
+  "include": ["public/electron.ts"],
   "exclude": ["./node_modules"]
 }

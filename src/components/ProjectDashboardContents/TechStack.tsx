@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 
 import useTechList from '../../hooks/useTechList';
 import useTechStack from '../../hooks/useTechStack';

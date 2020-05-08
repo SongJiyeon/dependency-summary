@@ -3,13 +3,13 @@ import axios from 'axios';
 import Store from 'electron-store';
 
 import Navigation from './layouts/Navigation';
+import Loading from './layouts/Loading';
 import DashboardStats from './DashboardContents/DashboardStats';
 import UserRepos from './DashboardContents/UserRepos';
 import CloneUrl from './DashboardContents/CloneUrl';
 import LocalPath from './DashboardContents/LocalPath';
 import UserSettings from './DashboardContents/UserSettings';
 import useRenderMode from '../hooks/useRenderMode';
-// import useLogin from '../hooks/useLogin';
 import useUserRepos from '../hooks/useUserRepos';
 
 const store = new Store();
@@ -17,14 +17,12 @@ const store = new Store();
 export default function Dashboard() {
   const { renderMode, onClickRenderMode } = useRenderMode();
   const { userRepos, onLoad } = useUserRepos();
-  // const { loggedIn } = useLogin();
 
-  async function handleClick(mode: 'stats' | 'userRepos' | 'cloneUrl' | 'localPath') {
+  async function handleClick(mode: 'stats' | 'userRepos' | 'cloneUrl' | 'localPath' | 'loading') {
     if (mode === 'userRepos') {
       const repos = await axios({
         method: 'get',
         url: 'https://api.github.com/user/repos',
-        // headers: { 'Authorization': 'token ' + loggedIn.token }
         headers: { 'Authorization': 'token ' + store.get('accessToken') }
       });
       onLoad(repos.data);
@@ -45,6 +43,7 @@ export default function Dashboard() {
         {renderMode === 'cloneUrl' && <CloneUrl />}
         {renderMode === 'localPath' && <LocalPath />}
         {renderMode === 'userSettings' && <UserSettings />}
+        {renderMode === 'loading' && <Loading />}
       </div>
     </div>
   );

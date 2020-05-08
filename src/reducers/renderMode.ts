@@ -8,7 +8,8 @@ export type RenderModeState =
 | 'userSettings'
 | 'moduleUsage'
 | 'dependencyTree'
-| 'techStack';
+| 'techStack'
+| 'loading';
 
 export const setRenderMode = (mode: RenderModeState) => ({
   type: SET_RENDER_MODE,

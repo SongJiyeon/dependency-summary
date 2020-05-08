@@ -17,6 +17,7 @@ type TechStackBoxProps = {
 
 export default function TechStackBox({ title, list, onClick, children }: TechStackBoxProps) {
   const techList = _.groupBy(list, tech => tech.type);
+  const setClassName = (name: string) => `tech-item ${name}`;
 
   return (
     <div>
@@ -30,7 +31,7 @@ export default function TechStackBox({ title, list, onClick, children }: TechSta
             {techs.map((item, index) => (
               <button
               key={index}
-              className="tech-item"
+              className={setClassName(name)}
               onClick={() => onClick(item)}>
                 <img src={item.image_url} alt="" className="tech-image" />
                 {item.name}

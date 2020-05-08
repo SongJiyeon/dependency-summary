@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Store from 'electron-store';
+import axios from 'axios';
 
 import UnusedModules from '../graphs/UnusedModules';
 import useTechStack from '../../hooks/useTechStack';
@@ -6,8 +8,14 @@ import useTechList from '../../hooks/useTechList';
 import useTargetPath from '../../hooks/useTargetPath';
 import { getModuleUsageData, drawPie, drawBar } from '../../utils';
 
+const store = new Store();
+
 export default function ModuleUsage() {
-  const [ data, setData ] = useState({ usedModules: [], packageJson: [] });
+  const [ data, setData ] = useState({
+    usedModuleList: [],
+    usedModules: [],
+    packageJson: []
+  });
   const { onSetTechStack } = useTechStack();
   const { onSetTechList } = useTechList();
   const { targetPath } = useTargetPath();
@@ -15,20 +23,35 @@ export default function ModuleUsage() {
   useEffect(() => {
     async function setPie(): Promise<void> {
       const {
+        usedModuleList,
         usedModules,
         packageJson,
         techStacks,
         techList
       } = await getModuleUsageData(targetPath);
 
-      drawPie(usedModules);
-      drawBar(usedModules);
-      setData({ usedModules, packageJson });
+      drawPie(usedModules, '.pie-container');
+      drawBar(usedModules, '.bar-container');
+      setData({ usedModuleList, usedModules, packageJson });
       onSetTechStack(techStacks);
       onSetTechList(techList);
     }
     setPie();
   }, [targetPath]);
+
+  async function saveData() {
+    try {
+      await axios({
+        method: 'post',
+        url: 'http://localhost:4000/api/module_usage',
+        data: { modules: data.usedModuleList, jwtToken: store.get('jwtToken') }
+      });
+      alert('저장 성공');
+    } catch (error) {
+      console.log(error);
+      alert('업로드에 실패했습니다');
+    }
+  }
 
   return (
     <div className="module-usage-container">
@@ -47,6 +70,12 @@ export default function ModuleUsage() {
               <div className="bar-container"></div>
             </div>
             <UnusedModules data={data} />
+            <div className="save-data-box">
+              <button className="save-data-button" onClick={saveData}>
+                <span>저장된 데이터는 사용자 통계에 사용됩니다</span>
+                SAVE DATA
+              </button>
+            </div>
           </div>
         </div>
       </div>

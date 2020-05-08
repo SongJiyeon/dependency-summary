@@ -22,6 +22,7 @@ export default function Navigation({ title, children }: NavigationProps) {
     onTargetChange(null);
     onSetTechStack([]);
     onSetTechList([]);
+    onClickRenderMode('stats');
   }
 
   return (

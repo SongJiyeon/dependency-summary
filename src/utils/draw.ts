@@ -5,7 +5,7 @@ import _ from 'lodash';
 const { screen } = electron.remote;
 const DURATION = 2000;
 
-export function drawForce(data: { nodes: object[], links: object[] }, graphType): void {
+export function drawForce(data: { nodes: object[], links: object[] }, graphType: string, select: string): void {
   const { width ,height } = screen.getPrimaryDisplay().workAreaSize;
   const size = data.nodes.length;
   const weights = data.nodes.reduce((weights, node) => {
@@ -14,7 +14,7 @@ export function drawForce(data: { nodes: object[], links: object[] }, graphType)
 
   d3.select('svg').remove();
 
-  const svg = d3.select('.force-container').append('svg')
+  const svg = d3.select(select).append('svg')
   .attr('width', width)
   .attr('height', height);
 
@@ -207,23 +207,29 @@ export function drawForce(data: { nodes: object[], links: object[] }, graphType)
   force.on('tick', tick);
 }
 
-export function drawPie(data: object[]): void {
+export function drawPie(data: object[], select: string): void {
   const width = screen.getPrimaryDisplay().workAreaSize.width * (2 / 5);
   const height = screen.getPrimaryDisplay().workAreaSize.height / 2;
   const margin = width / 30;
 
   const radius = Math.min(width, height) / 2 - margin;
   const total = data.reduce((sum, d: { value: number }) => sum + d.value, 0);
-  const colorLength = _.uniqBy(data.map(d => d.value), d => d.value).length;
   const length = data.length;
 
-  const svg = d3.select('.pie-container')
+  const svg = d3.select(select)
   .append('svg')
     .attr('width', width)
     .attr('height', height)
   .append('g')
     .attr('transform', `translate(${width / 2}, ${height / 2})`)
   ;
+
+  type dataType = {
+    name: string,
+    value: number,
+    endAngle: number,
+    startAngle: number
+  };
 
   const pie = d3.pie()
   .padAngle(0.005)
@@ -235,7 +241,7 @@ export function drawPie(data: object[]): void {
   .outerRadius(radius - 1);
 
   const color = d3.scaleOrdinal()
-  .domain(data.map(d => d.name))
+  .domain(data.map((d: dataType) => d.name))
   .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), length).reverse());
 
   const arcs = pie(data);
@@ -246,7 +252,7 @@ export function drawPie(data: object[]): void {
       .attr('class', 'arc');
   
   g.append('path')
-    .attr('fill', d => color(d.data.name))
+    .attr('fill', (d: { data: dataType }) => color(d.data.name))
     .attr('stroke', 'white')
     .attr('stroke-width', '2px')
     .transition()
@@ -270,28 +276,28 @@ export function drawPie(data: object[]): void {
       .call(text => text.append('tspan')
         .attr('y', '-0.4em')
         .attr('font-weight', 'bold')
-        .attr('font-size', d => (d.endAngle - d.startAngle) > 0.25 ? 20 : 10)
+        .attr('font-size', (d: dataType) => (d.endAngle - d.startAngle) > 0.25 ? 20 : 10)
         .transition()
         .delay(DURATION)
-        .text(d => d.data.name))
-      .call(text => text.filter(d => (d.endAngle - d.startAngle) > 0.25).append('tspan')
+        .text((d: { data: dataType }) => d.data.name))
+      .call(text => text.filter((d: dataType) => (d.endAngle - d.startAngle) > 0.25).append('tspan')
         .attr('x', 0)
         .attr('y', '0.7em')
         .attr('fill-opacity', 0.7)
         .attr('font-size', 15)
         .transition()
         .delay(DURATION)
-        .text(d => (d.data.value / total * 100).toFixed(1) + '%'));
+        .text((d: { data: dataType }) => (d.data.value / total * 100).toFixed(1) + '%'));
 }
 
-export function drawBar(data: object[]): void {
+export function drawBar(data: object[], select: string, customWidth?: number): void {
   const topUsedModules = _.sortBy(data, d => d.value).reverse().splice(0, 5).reverse();
 
   const size = topUsedModules.length;
 
   const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-  const width = screen.getPrimaryDisplay().workAreaSize.width / 3 - margin.left - margin.right;
-  const height = screen.getPrimaryDisplay().workAreaSize.height / 4 - margin.top - margin.bottom;
+  const width = customWidth || screen.getPrimaryDisplay().workAreaSize.width / 3 - margin.left - margin.right;
+  const height = screen.getPrimaryDisplay().workAreaSize.height / 4 - margin.top - margin.bottom - 30;
 
   const x = d3.scaleLinear()
   .range([0, width]);
@@ -304,7 +310,7 @@ export function drawBar(data: object[]): void {
   .domain(topUsedModules.map(d => d.name))
   .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), topUsedModules.length).reverse());
 
-  const svg = d3.select('.bar-container')
+  const svg = d3.select(select)
   .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)

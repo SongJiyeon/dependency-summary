@@ -1,23 +1,24 @@
 import React from 'react';
 import axios from 'axios';
-import * as firebase from "firebase/app";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import Store from 'electron-store';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import "firebase/auth";
 import "firebase/firestore";
+import firebase from "firebase/app";
+
 import useLogin from '../../hooks/useLogin';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA9K_Wyzl8oy5_NUgcNbttDn5kZOCIlwhI",
-  authDomain: "dependency-summary.firebaseapp.com",
-  databaseURL: "https://dependency-summary.firebaseio.com",
-  projectId: "dependency-summary",
-  storageBucket: "dependency-summary.appspot.com",
-  messagingSenderId: "967090880797",
-  appId: "1:967090880797:web:6f559fcf8595106df6a1f4",
-  measurementId: "G-HTS2D5PRDV"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIERBASE_DB_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -37,7 +38,7 @@ function LoginButton() {
 
     const { jwttoken } = (await axios({
         method: 'post',
-        url: 'http://localhost:4000/auth/login',
+        url: `${process.env.REACT_APP_FETCH_URL}/auth/login`,
         data: { access_token }
     })).headers;
 
