@@ -7,9 +7,20 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 exports.__esModule = true;
-var babel = require("@babel/core");
-var esprima = require("esprima");
+var electron_1 = require("electron");
 var fs = require("fs");
+var esprima = require("esprima");
+var babel = require("@babel/core");
+var child_process_1 = require("child_process");
+exports.findFileExists = function (path) { return fs.existsSync(path); };
+exports.setFileRead = function (path, option) { return fs.readFileSync(path, option); };
+exports.setDefaultPath = function () {
+    if (!fs.existsSync(electron_1.app.getPath('documents') + "/.ds")) {
+        child_process_1.execSync('mkdir .ds', { cwd: electron_1.app.getPath('documents') });
+        return electron_1.app.getPath('documents') + "/.ds";
+    }
+    return null;
+};
 exports.findModules = function (path) {
     var babelOptions = JSON.parse(fs.readFileSync('.babelrc', 'utf-8'));
     var fileNames = [];
