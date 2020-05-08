@@ -1,25 +1,24 @@
 import React from 'react';
 import './App.css';
-
-const OtherHeading: React.FC = () => (<h1>My Website Heading</h1>);
+import Header from './components/layouts/Header';
+import Main from './components/Main'
+import Dashboard from './components/Dashboard';
+import ProjectDashboard from './components/ProjectDashboard';
+import useLogin from './hooks/useLogin';
+import useTargetPath from './hooks/useTargetPath';
 
 function App() {
+  const { loggedIn } = useLogin();
+  const { targetPath } = useTargetPath();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <OtherHeading />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {loggedIn.status ?
+      targetPath ? <ProjectDashboard /> : <Dashboard />
+      :<Main />
+      }
+      {/* {targetPath ? <ProjectDashboard /> : <Dashboard />} */}
     </div>
   );
 }

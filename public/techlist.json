@@ -1,0 +1,404 @@
+[
+  {
+    "homepage_url": "https://developer.mozilla.org/en-Us/docs/Web/javascript/",
+    "image_url": "https://img.stackshare.io/service/1209/javascript.jpeg",
+    "name": "javascript",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://jquery.com/",
+    "image_url": "https://img.stackshare.io/service/1021/lxEKmMnB_400x400.jpg",
+    "name": "jQuery",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://github.com/",
+    "image_url": "https://img.stackshare.io/service/27/sBsvBbjY.png",
+    "name": "GitHub",
+    "type": "devOps"
+  }, 
+  {
+    "homepage_url": "https://www.python.org/",
+    "image_url": "https://img.stackshare.io/service/993/pUBY5pVj.png",
+    "name": "python",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://git-scm.com/",
+    "image_url": "https://img.stackshare.io/service/1046/git.png",
+    "name": "git",
+    "type": "devOps"
+  }, 
+  {
+    "homepage_url": "https://nodejs.org/",
+    "image_url": "https://img.stackshare.io/service/1011/n1jRsFeB_400x400.png",
+    "name": "node.js",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://www.php.net/",
+    "image_url": "https://img.stackshare.io/service/991/hwUcgZ41_400x400.jpg",
+    "name": "php",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://www.docker.com/",
+    "image_url": "https://img.stackshare.io/service/586/n4u37v9t_400x400.png",
+    "name": "docker",
+    "type": "devOps"
+  }, 
+  {
+    "homepage_url": "http://nginx.org/",
+    "image_url": "https://img.stackshare.io/service/1052/YMxUfyWf.png",
+    "name": "nginx",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://reactjs.org/",
+    "image_url": "https://img.stackshare.io/service/1020/OYIaj1KK.png",
+    "name": "react",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://www.java.com/ko/",
+    "image_url": "https://img.stackshare.io/service/995/K85ZWV2F.png",
+    "name": "java",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://slack.com/",
+    "image_url": "https://img.stackshare.io/service/675/RNisRYOF_400x400.jpg",
+    "name": "slack",
+    "type": "business"
+  }, 
+  {
+    "homepage_url": "https://html.spec.whatwg.org/multipage",
+    "image_url": "https://img.stackshare.io/service/2538/kEpgHiC9.png",
+    "name": "html5",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://www.mysql.com/",
+    "image_url": "https://img.stackshare.io/service/1025/logo-mysql-170x170.png",
+    "name": "mysql",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://code.visualstudio.com/",
+    "image_url": "https://img.stackshare.io/service/4202/Visual_studio_Code_logo.png",
+    "name": "visual-studio-code",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://httpd.apache.org/",
+    "image_url": "https://img.stackshare.io/service/1051/fab.os.logo.apache.200.15011_400x400.jpg",
+    "name": "apache-http-server",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://www.npmjs.com/",
+    "image_url": "https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png",
+    "name": "npm",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://www.mongodb.com/",
+    "image_url": "https://img.stackshare.io/service/1030/leaf-360x360.png",
+    "name": "Mongodb",
+    "type": "database"
+  }, 
+  {
+    "homepage_url": "https://www.postgresql.org/",
+    "image_url": "https://img.stackshare.io/service/1028/AsOhU5xj.png",
+    "name": "postgresql",
+    "type": "database"
+  },  
+  {
+    "homepage_url": "https://www.postman.com/",
+    "image_url": "https://img.stackshare.io/service/1336/xWMRvm_5_400x400.png",
+    "name": "postman",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://angularjs.org/",
+    "image_url": "https://img.stackshare.io/service/1019/square.png",
+    "name": "angular",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "https://www.jenkins.io/",
+    "image_url": "",
+    "name": "jenkins",
+    "type": "devOps"
+  },  
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Amazon-EC2",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Amazon-s3",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "jira",
+    "type": "devOps"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "ES6",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Trello",
+    "type": "business"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "GitLab",
+    "type": "devOps"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "typescript",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "bitbucket",
+    "type": "devOps"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "C#",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "vue",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "sass",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "sublime",
+    "type": "dev"
+  },  
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "webpack",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "ruby",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Visual-Studio",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Intellij-IDEA",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "firebase",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "django",
+    "type": "dev"
+  },  
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "heroku",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Vim",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "react-native",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "redux",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Rails",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "express",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "graphQL",
+    "type": "database"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Atom",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Android-Studio",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "ASP.NET",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Microsoft-Azure",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "skype",
+    "type": "business"
+  },  
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "CSS3",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "pycharm",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Xcode",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "gulp",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "swift",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "Notepad++",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "babel",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "apache-tomcat",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "microsoft-sql-server",
+    "type": "database"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "sqlite",
+    "type": "database"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "socket.io",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "circleCI",
+    "type": "devOps"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "gradle",
+    "type": "devOps"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "electron",
+    "type": "dev"
+  }, 
+  {
+    "homepage_url": "",
+    "image_url": "",
+    "name": "openSSL",
+    "type": "dev"
+  }
+]
