@@ -51,15 +51,7 @@
     "start": "rescripts start",
     "test": "rescripts test",
     "eject": "react-scripts eject",
-    "build": "react-scripts build",
-    "react-start": "react-scripts start",
-    "rescripts-build": "rescripts build",
-    "postinstall": "electron-builder",
-    "preelectron-pack": "yarn build",
-    "release": "yarn rescripts-build && yarn run postinstall --publish=always",
-    "electron-build": "yarn rescripts-build && yarn run postinstall",
-    "electron-pack": "build -mw",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
