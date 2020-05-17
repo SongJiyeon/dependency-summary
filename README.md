@@ -1,22 +1,18 @@
 # Dependency Summary
 
----
-
 
 
 ## List
 
-- Introduction
-- Tech/tool Stack
-- Installation
-- Usage
-- Difficulties
+- [Introduction](#introduction)
+- [Tech/tool Stack](#tech/tool-Stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Difficulties](#difficulties)
 
 
 
-## Introduction
-
----
+## Introduction {#introduction}
 
 Dependency Summary는 프로젝트의 dependency를 요약, 시각화하는 데스크탑 앱입니다. 
 
@@ -56,9 +52,7 @@ Dependency Summary는 프로젝트의 dependency를 요약, 시각화하는 데�
 
 
 
-## Tech/tool Stack
-
----
+## Tech/tool Stack {#tech/tool-Stack}
 
 ### 준비단계
 
@@ -76,9 +70,7 @@ Dependency Summary는 프로젝트의 dependency를 요약, 시각화하는 데�
 
 
 
-## Installation
-
----
+## Installation {#installation}
 
 아래 명령어를 통해 프로젝트를 직접 실행할 수 있습니다
 
@@ -90,9 +82,7 @@ npm run electron-start
 
 
 
-## Usage
-
----
+## Usage {#usage}
 
 ### 시작하기
 
@@ -158,9 +148,7 @@ npm run electron-start
 
 
 
-## Difficulties
-
----
+## Difficulties {#difficulties}
 
 ✅ 해결된 케이스 ❓미해결 케이스
 
