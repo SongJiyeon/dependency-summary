@@ -11,8 +11,13 @@ export default function UserRepos({ repos }: userReposProps) {
   const { onTargetChange } = useTargetPath();
 
   function loadProject(cloneUrl: string, repoName: string) {
-    const path = getNPMList(cloneUrl, repoName);
-    onTargetChange(path);
+    try {
+      const path = getNPMList(cloneUrl, repoName);
+      onTargetChange(path);
+    } catch (error) {
+      // todo: getNPMList 함수 중 npm install 과정에서 발생하는 오류 무시하도록 수정
+      console.log('complete');
+    }
 
     alert('complete save!');
   }

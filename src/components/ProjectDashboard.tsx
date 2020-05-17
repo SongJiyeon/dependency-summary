@@ -7,21 +7,21 @@ import TechStack from './ProjectDashboardContents/TechStack';
 import useRenderMode from '../hooks/useRenderMode';
 
 export default function ProjectDashboard() {
-  const { renderMode, onClickRenderMode } = useRenderMode();
+  const { renderMode, onChangeRenderMode } = useRenderMode();
 
   useEffect(() => {
-    onClickRenderMode('moduleUsage');
+    onChangeRenderMode('moduleUsage');
   }, []);
 
   function handleClick(mode: 'moduleUsage' | 'dependencyTree' | 'techStack' | 'userSettings') {
-    onClickRenderMode(mode);
+    onChangeRenderMode(mode);
   }
 
   return (
     <div className="dashboard-container">
       <Navigation title="Project">
         <button className="navigation-button" type="button" onClick={() => handleClick('moduleUsage')}>module usage coverage</button>
-        <button className="navigation-button" type="button" onClick={() => handleClick('dependencyTree')}>dependency tree</button>
+        <button className="navigation-button" type="button" onClick={() => handleClick('dependencyTree')}>dependency graph</button>
         <button className="navigation-button" type="button" onClick={() => handleClick('techStack')}>tech stack summary</button>
       </Navigation>
       <div className="dashboard-contents-container">

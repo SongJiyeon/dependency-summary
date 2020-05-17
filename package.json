@@ -33,6 +33,7 @@
     "d3": "^5.16.0",
     "dotenv": "^8.2.0",
     "electron-is-dev": "^1.2.0",
+    "electron-oauth2": "^3.0.0",
     "electron-store": "^5.1.1",
     "esprima": "^4.0.1",
     "firebase": "^7.14.1",
@@ -51,7 +52,15 @@
     "start": "rescripts start",
     "test": "rescripts test",
     "eject": "react-scripts eject",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "react-start": "react-scripts start",
+    "rescripts-build": "rescripts build",
+    "postinstall": "electron-builder",
+    "preelectron-pack": "yarn build",
+    "release": "yarn rescripts-build && yarn run postinstall --publish=always",
+    "electron-build": "yarn rescripts-build && yarn run postinstall",
+    "electron-pack": "build -mw",
+    "electron-start": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": "react-app"

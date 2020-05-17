@@ -35,7 +35,7 @@ function setUpdatedDate(date: string): string {
 function getNPMList(cloneUrl: string, repoName: string): string {
   const basePath = store.get('user-path') || store.get('default-path');
   const path = basePath + `/${repoName}`;
-
+  console.log(path, findFileExists(path));
   if (!findFileExists(path)) {
     console.log('start git clone');
     execSync(`git clone ${cloneUrl}`, { cwd: basePath });
@@ -44,7 +44,6 @@ function getNPMList(cloneUrl: string, repoName: string): string {
     console.log('complete install');
     execSync('npm list -json > npmlist.json', { cwd: path });
     console.log('complete make list');
-    execSync('rm -rf node_modules .git', { cwd: path });
   }
 
   getNPMListLocal(path);
@@ -66,14 +65,12 @@ function getNPMListLocal(path: string) {
           console.log('success');
           return;
         }
-        console.log(error.status);
+        console.log(findFileExists(`${path}/npmlist.json`), 'hello');
       }
-      execSync('rm -rf node_modules .git', { cwd: path });
     }
   } catch(error) {
     alert('프로젝트 폴더가 아니거나 package.json이 없습니다\n다시 확인해주세요');
   }
-  
 
   if (!findFileExists(`${path}/npmlist.json`)) {
     execSync('npm list -json > npmlist.json', { cwd: path });
@@ -142,6 +139,7 @@ type pieDataType = {
 };
 
 async function getModuleUsageData(path: string): Promise<pieDataType> {
+  console.log(path);
   const usedModuleList = findModules(path);
 
   const packageJson = JSON.parse(setFileRead(path + '/package.json', 'utf8'));

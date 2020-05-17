@@ -17,7 +17,7 @@ function createWindow() {
         }
     });
     if (isDev) {
-        mainWindow.loadURL('http://localhost:3000');
+        mainWindow.loadURL('http://localhost:3000/');
         mainWindow.webContents.openDevTools();
     }
     else {

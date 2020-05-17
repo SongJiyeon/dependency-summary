@@ -7,10 +7,10 @@ export default function useRenderMode() {
   const renderMode = useSelector((state: RootState) => state.renderMode);
   const dispatch = useDispatch();
 
-  const onClickRenderMode = useCallback((mode: RenderModeState) => dispatch(setRenderMode(mode)), [dispatch]);
+  const onChangeRenderMode = useCallback((mode: RenderModeState) => dispatch(setRenderMode(mode)), [dispatch]);
 
   return {
     renderMode,
-    onClickRenderMode
+    onChangeRenderMode
   };
 };

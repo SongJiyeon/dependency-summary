@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import loggedIn from './loggedIn';
+import loadingMsg from './loadingMsg';
 import renderMode from './renderMode';
 import modalStatus from './modalStatus';
 import userRepos from './userRepos';
@@ -9,6 +10,7 @@ import techList from './techList';
 
 const rootReducer = combineReducers({
   loggedIn,
+  loadingMsg,
   renderMode,
   modalStatus,
   userRepos,

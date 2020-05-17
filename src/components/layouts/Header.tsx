@@ -8,7 +8,7 @@ import useRenderMode from '../../hooks/useRenderMode';
 
 export default function Header() {
   const { loggedIn } = useLogin();
-  const { onClickRenderMode } = useRenderMode();
+  const { onChangeRenderMode } = useRenderMode();
 
   return (
     <div className="header-container">
@@ -16,7 +16,7 @@ export default function Header() {
       <div className="header-padding"></div>
       {loggedIn.status && (
       <>
-        <button className="logout-button" onClick={() => onClickRenderMode('userSettings')}>
+        <button className="logout-button" onClick={() => onChangeRenderMode('userSettings')}>
           <FontAwesomeIcon icon={faCog} size="lg" /> SETTINGS
         </button>
         <LogoutButton />

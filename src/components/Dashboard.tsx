@@ -15,7 +15,7 @@ import useUserRepos from '../hooks/useUserRepos';
 const store = new Store();
 
 export default function Dashboard() {
-  const { renderMode, onClickRenderMode } = useRenderMode();
+  const { renderMode, onChangeRenderMode } = useRenderMode();
   const { userRepos, onLoad } = useUserRepos();
 
   async function handleClick(mode: 'stats' | 'userRepos' | 'cloneUrl' | 'localPath' | 'loading') {
@@ -27,7 +27,7 @@ export default function Dashboard() {
       });
       onLoad(repos.data);
     }
-    onClickRenderMode(mode);
+    onChangeRenderMode(mode);
   }
 
   return (

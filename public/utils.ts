@@ -43,6 +43,7 @@ exports.findModules = (path: string) => {
   findFileNames(path);
 
   return fileNames.reduce((modules: any, file) => {
+    console.log(file.path);
     const code = babel.transformFileSync(file.path, babelOptions);
     const modulesInFile = code && code.code && esprima.parseModule(code.code).body.filter(module => module.type === 'ImportDeclaration');
     const moduleNames = modulesInFile && modulesInFile.length ? 
