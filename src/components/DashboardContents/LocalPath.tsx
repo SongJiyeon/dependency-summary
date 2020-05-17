@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import electron from 'electron';
 
 import { getNPMListLocal } from '../../utils/index';
+import useRenderMode from '../../hooks/useRenderMode';
 import useTargetPath from '../../hooks/useTargetPath';
 
 const { dialog } = electron.remote;
 
 export default function LocalPath() {
   const [ path, setPath ] = useState('');
-  const { onTargetChange } = useTargetPath();
+  const { onChangeRenderMode } = useRenderMode();
+  const { targetPath, onTargetChange } = useTargetPath();
   
   async function handleOpen() {
     const stdout = await dialog.showOpenDialog({ properties: ['openDirectory'] });
@@ -16,8 +18,15 @@ export default function LocalPath() {
   }
 
   function handleSave() {
-    getNPMListLocal(path);
-    onTargetChange(path);
+    !targetPath && onChangeRenderMode('loading');
+    try {
+      getNPMListLocal(path);
+      onTargetChange(path);
+    } catch(error) {
+      // todo: getNPMListLocal 함수 중 npm install 과정에서 발생하는 오류 무시하도록 수정
+      console.log('complete save');
+    }
+    
   }
 
   return (

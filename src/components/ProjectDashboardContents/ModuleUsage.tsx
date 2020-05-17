@@ -43,7 +43,7 @@ export default function ModuleUsage() {
     try {
       await axios({
         method: 'post',
-        url: 'http://localhost:4000/api/module_usage',
+        url: `${process.env.REACT_APP_FETCH_URL}/api/module_usage`,
         data: { modules: data.usedModuleList, jwtToken: store.get('jwtToken') }
       });
       alert('저장 성공');

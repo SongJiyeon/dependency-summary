@@ -16,13 +16,13 @@ export default function Navigation({ title, children }: NavigationProps) {
   const { targetPath, onTargetChange } = useTargetPath();
   const { onSetTechStack } = useTechStack();
   const { onSetTechList } = useTechList();
-  const { onClickRenderMode } = useRenderMode();
+  const { onChangeRenderMode } = useRenderMode();
 
   function handleGoBack(): void {
     onTargetChange(null);
     onSetTechStack([]);
     onSetTechList([]);
-    onClickRenderMode('stats');
+    onChangeRenderMode('stats');
   }
 
   return (
@@ -37,7 +37,7 @@ export default function Navigation({ title, children }: NavigationProps) {
         </button>}
         <div className="navigation-header-title">
           {title === 'Dashboard' ?
-          <button type="button" onClick={() => onClickRenderMode('stats')}>
+          <button type="button" onClick={() => onChangeRenderMode('stats')}>
             {title}
           </button>
           : <div>{title}</div>}

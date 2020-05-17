@@ -33,6 +33,7 @@
     "d3": "^5.16.0",
     "dotenv": "^8.2.0",
     "electron-is-dev": "^1.2.0",
+    "electron-oauth2": "^3.0.0",
     "electron-store": "^5.1.1",
     "esprima": "^4.0.1",
     "firebase": "^7.14.1",
@@ -59,7 +60,7 @@
     "release": "yarn rescripts-build && yarn run postinstall --publish=always",
     "electron-build": "yarn rescripts-build && yarn run postinstall",
     "electron-pack": "build -mw",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-start": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": "react-app"

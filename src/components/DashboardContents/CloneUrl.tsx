@@ -4,11 +4,17 @@ import { getNPMList } from '../../utils/index';
 
 export default function CloneUrl() {
   const [path, setPath] = useState('');
-  const { targetPath, onTargetChange } = useTargetPath();
+  const { onTargetChange } = useTargetPath();
 
   function handleLoad() {
-    const repoName = path.split('/')[4].replace('.git', '');
-    onTargetChange(getNPMList(path, repoName));
+    try {
+      const repoName = path.split('/')[4].replace('.git', '');
+      onTargetChange(getNPMList(path, repoName));
+    } catch (error) {
+      // todo: getNPMList 함수 중 npm install 과정에서 발생하는 오류 무시하도록 수정
+      console.log('complete save!');
+    }
+    
   }
 
   return (
