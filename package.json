@@ -117,7 +117,7 @@
     "@types/redux-actions": "^2.6.1",
     "concurrently": "^5.1.0",
     "cross-env": "^7.0.2",
-    "electron": "^8.2.3",
+    "electron": "^9.4.0",
     "electron-builder": "^22.5.1",
     "path": "^0.12.7",
     "typescript": "^3.8.3",
